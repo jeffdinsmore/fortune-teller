@@ -1,76 +1,36 @@
 
-const add = function(number1, number2) {
-  return number1 + number2;
-};
-
-const groupLlu = parseInt($("#lucky").val());
-const groupUnLucky = parseInt($("#unlucky").val());
-
-let array = [];
-let sum = 0;
-let oldSum;
-let newSum;
-array.forEach(function(numberToAdd) {
-  debugger;
-  oldSum = sum;
-  sum = sum + numberToAdd;
-  newSum = sum;
-  if sum > 0 
-    return true
-});
-
 $(document).ready(function(){
   $("form#Fortune_survey").submit(function(event){
-    event.preventDefault();
-
+    let array = [];
     $("input:checkbox[name=lucky]:checked").each(function(){
-      let array = $(parseInt(this).val());
-      
-
-
-
-
-
-
-
-    $("#lucky-responses").show();
-    $("input:checkbox[name=lucky]:checked").each(function(){
-      let array = $(parseInt(this).val());
-      $('#lucky-responses').show();
-    });
-
-   
+      array.push(parseInt($(this).val()));
+     });
     $("input:checkbox[name=unlucky]:checked").each(function(){
-      let array = $(parseInt(this).val());
-      $('#UnLucky-responses').show();
-    });
+      array.push(parseInt($(this).val()));
+     });
+     console.log(array);
 
-    $('#Fortune_survey').hide();
+    let sum = 0;
+    let oldSum;
+    let newSum; 
+    array.forEach(function(numberToAdd) {
+      oldSum = sum;
+      sum = sum + numberToAdd;
+      newSum = sum;
+       
+
+      if (sum > 0) {
+        $('#lucky-responses').show();
+
+      } else if (sum = 0) {
+        $("#neutral-responses").show();
+
+      } else {
+        $('#UnLucky-responses').show();
+      }   
+    });
+    event.preventDefault();
   });
 });
+      
 
-const array = [0,1,2,3,4,5];
-let sum = 0;
-let oldSum;
-let newSum;
-array.forEach(function(numberToAdd) {
-  debugger;
-  oldSum = sum;
-  sum = sum + numberToAdd;
-  newSum = sum;
-});
-
-// const sequence = ["X", "A", "Y", "M", "D"];
-// const pattern1 = "A";
-// const pattern2 = "Z";
-// function dnaPatternDetector(dnaSequence, pattern) {
-//   for (let i = 0; i < dnaSequence.length; i +=1) {
-//     if (dnaSequence[i] === pattern) {
-//       return true;
-//     };
-//     console.log("Looped!");
-//   }
-//   return false;
-// }
-
-// dnaPatternDetector(sequence, pattern1);

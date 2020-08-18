@@ -1,6 +1,6 @@
 header, footer {
   height: 60px;
 }
-#lucky-responses, #UnLucky-responses {
+#lucky-responses, #UnLucky-responses, #neutral-responses {
   display: none;
 }
