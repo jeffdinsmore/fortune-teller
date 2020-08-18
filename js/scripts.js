@@ -8,21 +8,22 @@ $(document).ready(function(){
     $("input:checkbox[name=unlucky]:checked").each(function(){
       array.push(parseInt($(this).val()));
      });
-     console.log(array);
-
-    let sum = 0;
+    
+    let sum = 0; 
     let oldSum;
-    let newSum; 
+    let newSum;
+
     array.forEach(function(numberToAdd) {
       oldSum = sum;
       sum = sum + numberToAdd;
       newSum = sum;
-       
 
-      if (sum > 0) {
+      console.log(answer);       
+
+      if (answer > 0) {
         $('#lucky-responses').show();
 
-      } else if (sum = 0) {
+      } else if (answer = 0) {
         $("#neutral-responses").show();
 
       } else {
